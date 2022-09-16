@@ -1,2 +1,2 @@
 # Mortgage-Calculator
-Mortgage Calculator using Java.
+Mortgage calculator using Java.
