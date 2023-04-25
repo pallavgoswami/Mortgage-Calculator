@@ -34,7 +34,7 @@ public class MortgageCalculator {
         }
 
         while (true) {
-            System.out.println("Period (Years0: ");
+            System.out.println("Period (Years): ");
             byte years = scanner.nextByte();
             if (years >= 1 && years <= 30) {
                 numberOfPayments = years * MONTHS_IN_YEAR;
@@ -45,7 +45,10 @@ public class MortgageCalculator {
 
         double mortgage = principal * (monthlyInterest * Math.pow(1 + monthlyInterest, numberOfPayments))/(Math.pow(1 + monthlyInterest, numberOfPayments) -1);
 
-        String mortgageFormatted = NumberFormat.getCurrencyInstance().format(mortgage);
+        NumberFormat currencyFormat = NumberFormat.getCurrencyInstance();
+        currencyFormat.setCurrency(Currency.getInstance("USD"));
+        String mortgageFormatted = currencyFormat.format(mortgage);
+
         System.out.print("Mortgage: " + mortgageFormatted);
 
 
